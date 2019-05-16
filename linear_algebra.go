@@ -1,8 +1,22 @@
-package linear_algebra
+package data_science
 
 import "math"
 
 type Vector []float64
+
+func (vec Vector) Len() int {
+	return len(vec)
+}
+
+func (vec Vector) Less(i, j int) bool {
+	return vec[i] < vec[j]
+}
+
+func (vec Vector) Swap(i, j int) {
+	tmp := vec[i]
+	vec[i] = vec[j]
+	vec [j] = tmp
+}
 
 // Matrix structure definition.
 type Matrix struct {
@@ -32,6 +46,15 @@ func (matrix Matrix) getColumn(index int) Vector {
 	res := make(Vector, 0)
 	for _, vec := range matrix.values {
 		res = append(res, vec[index])
+	}
+	return res
+}
+
+// Sum all elements of vector
+func Sum(vector Vector) float64 {
+	res := float64(0)
+	for _, val := range vector {
+		res += val
 	}
 	return res
 }

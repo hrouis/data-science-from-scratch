@@ -1,4 +1,4 @@
-package linear_algebra
+package data_science
 
 import (
 	"fmt"
